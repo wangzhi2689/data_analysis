@@ -163,6 +163,7 @@ if __name__ == '__main__':
         row_data = defaultdict(list)
         row_data = read_info_file("信息登记.xlsx")
         print(row_data)
+
         data1 = update_excel_file("xx月xx日xx街道xx社区环境采样消杀.xlsx", row_data)
         data2 = update_excel_file_2("体温表消杀门扣表.xlsx", row_data) # 体温表
 
