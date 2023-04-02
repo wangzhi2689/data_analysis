@@ -8,7 +8,7 @@ def read_excel_file(readFile):
             output = pd.read_excel(readFile, engine='openpyxl', sheet_name=sheet_name)
             if(output.size > 0):
                 data[sheet_name] = output
-            print(sheet_name + " read end, 共 " + str(output.shape[0]) + " 行 " + str(output.shape[1]) + " 列.")
+            print(sheet_name + " read end, total of " + str(output.shape[0]) + " 行 " + str(output.shape[1]) + " 列.")
     except Exception as e:
         print(e)
     finally:
@@ -38,10 +38,10 @@ if __name__ == '__main__':
     # 添加不带默认值的可解析参数
     parser.add_argument("-r", "--readFile", help="read excel file")  # 注意： -h、--help为内置参数，不可用
     ARGS = parser.parse_args()  # 获取命令行参数
-    print('ARGS:', ARGS)
+    print('ARGS is :', ARGS)
 
     if(ARGS.readFile):
         data = read_excel_file(ARGS.readFile)
         for row_num in range(0, len(data)):
             res = data["Sheet1"].iloc[row_num]
-            print(res)
+            print("res is " + str(res))

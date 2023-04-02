@@ -14,7 +14,7 @@ def read_info_file(info_file):
             if sheet_name != "info":
                 continue
             output = pd.read_excel(info_file, engine='openpyxl', sheet_name=sheet_name)
-            print(sheet_name + " read end, 共 " + str(output.shape[0]) + " 行 " + str(output.shape[1]) + " 列.")
+            print(sheet_name + " read end, total of " + str(output.shape[0]) + " 行 " + str(output.shape[1]) + " 列.")
             workbook = openpyxl.load_workbook(info_file)
             sheet_obj = workbook[sheet_name]
             for c_num in range(2, output.shape[1]+1):
@@ -37,7 +37,7 @@ def read_info_file(info_file):
         print(str(info_file) + "read_info_file end!")
     return row_data
 
-#xx月xx日太华路街道纱厂东街社区环境采样消杀
+#xx月xx日xx街道xx社区环境采样消杀
 def update_excel_file(readFile, row_data):
 
     data_xls = pd.io.excel.ExcelFile(readFile)
@@ -163,7 +163,8 @@ if __name__ == '__main__':
         row_data = defaultdict(list)
         row_data = read_info_file("信息登记.xlsx")
         print(row_data)
-        data1 = update_excel_file("xx月xx日太华路街道纱厂东街社区环境采样消杀.xlsx", row_data)
+
+        data1 = update_excel_file("xx月xx日xx街道xx社区环境采样消杀.xlsx", row_data)
         data2 = update_excel_file_2("体温表消杀门扣表.xlsx", row_data) # 体温表
 
     #dic = defaultdict(list)
