@@ -45,3 +45,5 @@ if __name__ == '__main__':
         for row_num in range(0, len(data)):
             res = data["Sheet1"].iloc[row_num]
             print("res is " + str(res))
+    print("python finish!")
+    exit(1)
